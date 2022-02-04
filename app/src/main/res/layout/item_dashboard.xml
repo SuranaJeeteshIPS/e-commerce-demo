@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="DashboardItemBinding">
+
+        <variable
+            name="mData"
+            type="com.android.basicstructure.model.response.DashboardData" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/mcv_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="@dimen/dp_9"
+        android:minWidth="@dimen/dp_155"
+        android:outlineAmbientShadowColor="@color/card_shadow"
+        android:outlineSpotShadowColor="@color/card_shadow"
+        android:shadowColor="@color/card_shadow"
+        app:cardCornerRadius="@dimen/dp_15"
+        app:cardElevation="@dimen/dp_9"
+        android:layout_marginTop="@dimen/dp_1"
+        app:cardPreventCornerOverlap="false"
+        tools:ignore="UnusedAttribute">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img_dashboard_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dp_12"
+                android:minHeight="@dimen/dp_136"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="@dimen/dp_4"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/profile_pic" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txt_dashboard_item_title"
+                style="@style/dashboardItemTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_12"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="@string/dummy_item_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/img_dashboard_item" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txt_dashboard_item_amount"
+                style="@style/dashboardItemAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_12"
+                android:layout_marginVertical="@dimen/dp_13"
+                android:text="@string/dummy_dollar"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/img_add_to_cart"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txt_dashboard_item_title" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img_add_to_cart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:foreground="@drawable/default_ripple_round"
+                android:padding="@dimen/dp_12"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/ic_add"
+                tools:ignore="UnusedAttribute,ImageContrastCheck" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

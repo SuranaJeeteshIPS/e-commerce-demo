@@ -1,0 +1,213 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:splitMotionEvents">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:navigationBarColor">@color/white_transparent_80</item>
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:textColorHint">@android:color/white</item>
+        <item name="android:windowEnableSplitTouch">false</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:letterSpacing">.002</item>
+        <item name="android:fontFamily" tools:ignore="NewApi">@font/open_sans</item>
+    </style>
+
+    <style name="fragmentClickable">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@android:color/white</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+    <style name="OpenSansBold14">
+        <item name="android:fontFamily" tools:ignore="NewApi">@font/open_sans_bold</item>
+        <item name="android:textSize">@dimen/sp_14</item>
+    </style>
+
+    <style name="OpenSansBold15">
+        <item name="android:fontFamily" tools:ignore="NewApi">@font/open_sans_bold</item>
+        <item name="android:textSize">@dimen/sp_15</item>
+    </style>
+
+    <style name="OpenSansBold25">
+        <item name="android:fontFamily" tools:ignore="NewApi">@font/open_sans_bold</item>
+        <item name="android:textSize">@dimen/sp_25</item>
+    </style>
+
+    <style name="OpenSansBold20">
+        <item name="android:fontFamily" tools:ignore="NewApi">@font/open_sans_bold</item>
+        <item name="android:textSize">@dimen/sp_20</item>
+    </style>
+
+    <style name="OpenSansSemiBold20">
+        <item name="android:fontFamily" tools:ignore="NewApi">@font/open_sans_semi_bold</item>
+        <item name="android:textSize">@dimen/sp_20</item>
+    </style>
+
+    <style name="OpenSansSemiBold17">
+        <item name="android:fontFamily" tools:ignore="NewApi">@font/open_sans_semi_bold</item>
+        <item name="android:textSize">@dimen/sp_17</item>
+    </style>
+
+    <style name="OpenSansBold28">
+        <item name="android:fontFamily" tools:ignore="NewApi">@font/open_sans_bold</item>
+        <item name="android:textSize">@dimen/sp_28</item>
+    </style>
+
+    <style name="OpenSansRegular17">
+        <item name="android:fontFamily" tools:ignore="NewApi">@font/open_sans</item>
+        <item name="android:textSize">@dimen/sp_17</item>
+    </style>
+
+    <style name="OpenSansRegular24">
+        <item name="android:fontFamily" tools:ignore="NewApi">@font/open_sans</item>
+        <item name="android:textSize">@dimen/sp_24</item>
+    </style>
+
+    <style name="OpenSansRegular20">
+        <item name="android:fontFamily" tools:ignore="NewApi">@font/open_sans</item>
+        <item name="android:textSize">@dimen/sp_20</item>
+    </style>
+
+    <style name="OpenSansLight17">
+        <item name="android:fontFamily" tools:ignore="NewApi">@font/open_sans</item>
+        <item name="android:textSize">@dimen/sp_17</item>
+    </style>
+
+    <style name="OpenSansLight28">
+        <item name="android:fontFamily" tools:ignore="NewApi">@font/open_sans</item>
+        <item name="android:textSize">@dimen/sp_24</item>
+    </style>
+
+    <style name="OpenSansExtraBold14">
+        <item name="android:fontFamily" tools:ignore="NewApi">@font/open_sans_extra_bold</item>
+        <item name="android:textSize">@dimen/sp_14</item>
+    </style>
+
+    <style name="OpenSansExtraBold17">
+        <item name="android:fontFamily" tools:ignore="NewApi">@font/open_sans_extra_bold</item>
+        <item name="android:textSize">@dimen/sp_17</item>
+    </style>
+
+    <style name="OpenSansExtraBold28">
+        <item name="android:fontFamily" tools:ignore="NewApi">@font/open_sans_extra_bold</item>
+        <item name="android:textSize">@dimen/sp_28</item>
+    </style>
+
+
+    <!--[START] Cart Fragment-->
+    <style name="cartTitle" parent="OpenSansBold14">
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textColor">@color/cart_title</item>
+    </style>
+
+    <style name="cartTotal" parent="OpenSansExtraBold14">
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textColor">@color/cart_title</item>
+    </style>
+
+    <style name="cartAmount" parent="OpenSansBold15">
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textColor">@color/cart_amount</item>
+    </style>
+
+    <style name="cartTotalAmount" parent="OpenSansBold25">
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textColor">@color/button_gradient_start</item>
+    </style>
+
+    <style name="cartShoppingTitle" parent="OpenSansLight28">
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textColor">@color/shopping_title</item>
+    </style>
+
+    <style name="cartCartTitle" parent="OpenSansBold28">
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textColor">@color/shopping_title</item>
+    </style>
+
+    <style name="categories" parent="OpenSansBold14">
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:background">@drawable/selector_shape_categories</item>
+        <item name="android:textColor">@drawable/selector_categories_text</item>
+    </style>
+
+    <style name="cartQuantity" parent="OpenSansRegular24">
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textColor">@color/cart_title</item>
+        <item name="android:textColorHint">@color/cart_title</item>
+        <item name="android:background">@null</item>
+    </style>
+    <!--[END] Cart Fragment-->
+
+    <!--[START] Dashboard Fragment-->
+    <style name="dashboardTitle" parent="OpenSansExtraBold28">
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textColor">@color/DashboardTitle</item>
+    </style>
+
+    <style name="dashboardAddress" parent="OpenSansLight17">
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textColor">@color/DashboardAddress</item>
+        <item name="android:drawableTint" tools:ignore="NewApi">@color/DashboardTitle</item>
+    </style>
+
+    <style name="dashboardItemAmount" parent="OpenSansRegular17">
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textColor">@color/DashboardTitle</item>
+    </style>
+
+    <style name="dashboardItemTitle" parent="OpenSansExtraBold17">
+        <item name="android:maxLines">2</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textColor">@color/DashboardTitle</item>
+    </style>
+
+    <!--[END] Dashboard Fragment-->
+
+    <!--[START] Description Fragment-->
+
+    <style name="DescriptionItemTitle" parent="OpenSansSemiBold20">
+        <item name="android:maxLines">2</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textColor">@color/DashboardTitle</item>
+    </style>
+
+    <style name="DescriptionItemAmount" parent="OpenSansBold28">
+        <item name="android:maxLines">2</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textColor">@color/DashboardTitle</item>
+    </style>
+
+    <style name="DescriptionItemDescription" parent="OpenSansLight17">
+        <item name="android:textColor">@color/DashboardTitle</item>
+    </style>
+
+    <style name="DescriptionAddToCart" parent="OpenSansSemiBold17">
+        <item name="android:maxLines">2</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!--[END] Description Fragment-->
+
+</resources>

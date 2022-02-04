@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Basic Structure</string>
+    <string name="roll_lollipop">Roll Lollipop</string>
+    <string name="dummy_dollar">$4</string>
+    <string name="dummy_big_dollar">$10.5</string>
+    <string name="dummy_item_title">Peppermint Mocha</string>
+    <string name="dummy_quantity">4</string>
+    <string name="zero">0</string>
+    <string name="shopping">Shopping</string>
+    <string name="cart">Cart</string>
+    <string name="checkout">Checkout</string>
+    <string name="add_to_cart">Add to cart</string>
+    <string name="total">Total</string>
+    <string name="all">All</string>
+    <string name="dummy_address">648 Bridge Street</string>
+    <string name="good_morning">Good Morning</string>
+    <string name="dummy_description">A holiday classic, our Peppermint Mocha infuses hand-pulled
+        espresso with rich chocolate sauce, sweet peppermint, topped with a cloud of
+        whipped cream.</string>
+</resources>

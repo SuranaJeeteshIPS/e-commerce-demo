@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="transparent20">#33000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="details">#E4F3F7</color>
+    <color name="DashboardTitle">#323232</color>
+    <color name="DashboardAddress">#8E8E93</color>
+    <color name="cart_title">#424586</color>
+    <color name="cart_amount">#A05EC7</color>
+    <color name="shopping_title">#151A6A</color>
+    <color name="button_gradient_start">#A25FC9</color>
+    <color name="dashboard">#C3B8CA</color>
+    <color name="categories_selected">#54B2CF</color>
+    <color name="categories_unselected">#E4F3F7</color>
+    <color name="card_shadow">#7A03B2</color>
+    <color name="white_transparent_80" tools:keep="@color/white_transparent_80">#CCFFFFFF</color>
+
+</resources>

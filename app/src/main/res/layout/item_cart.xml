@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="CartItemBinding">
+
+        <variable
+            name="mData"
+            type="com.android.basicstructure.model.response.CartData" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/mcv_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_24"
+        android:elevation="@dimen/dp_9"
+        android:outlineAmbientShadowColor="@color/card_shadow"
+        android:outlineSpotShadowColor="@color/card_shadow"
+        android:shadowColor="@color/card_shadow"
+        app:cardCornerRadius="@dimen/dp_15"
+        app:cardElevation="@dimen/dp_9"
+        app:cardPreventCornerOverlap="false"
+        tools:ignore="UnusedAttribute">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img_item"
+                android:layout_width="@dimen/dp_88"
+                android:layout_height="@dimen/dp_88"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:scaleType="center"
+                app:srcCompat="@drawable/profile_pic" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txt_item_name"
+                style="@style/cartTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_13"
+                android:text="@string/roll_lollipop"
+                app:layout_constraintEnd_toStartOf="@id/txt_item_quantity"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toEndOf="@id/barrier"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatRatingBar
+                android:id="@+id/rb_item"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_6"
+                app:layout_constraintStart_toEndOf="@id/barrier"
+                app:layout_constraintTop_toBottomOf="@id/txt_item_name" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/txt_item_amount"
+                style="@style/cartAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_4"
+                android:text="@string/dummy_dollar"
+                app:layout_constraintEnd_toStartOf="@id/txt_item_quantity"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toEndOf="@id/barrier"
+                app:layout_constraintTop_toBottomOf="@id/rb_item" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/txt_item_quantity"
+                style="@style/cartQuantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/zero"
+                android:inputType="number"
+                android:maxLength="4"
+                android:text="@string/dummy_quantity"
+                app:layout_constraintBottom_toBottomOf="@id/txt_item_amount"
+                app:layout_constraintEnd_toEndOf="@id/barrier_button"
+                app:layout_constraintTop_toTopOf="@id/txt_item_name" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img_plus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dp_4"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="@drawable/default_ripple_round"
+                android:padding="@dimen/dp_10"
+                app:layout_constraintBottom_toTopOf="@id/img_minus"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"
+                app:srcCompat="@drawable/ic_plus" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img_minus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dp_4"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="@drawable/default_ripple_round"
+                android:padding="@dimen/dp_10"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/img_plus"
+                app:srcCompat="@drawable/ic_minus" />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_10"
+                app:barrierDirection="end"
+                app:barrierMargin="@dimen/dp_17"
+                app:constraint_referenced_ids="img_item" />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrier_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="start"
+                app:constraint_referenced_ids="img_plus,img_minus" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>
