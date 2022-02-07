@@ -17,4 +17,16 @@
     <string name="dummy_description">A holiday classic, our Peppermint Mocha infuses hand-pulled
         espresso with rich chocolate sauce, sweet peppermint, topped with a cloud of
         whipped cream.</string>
+
+    <string name="error_custom_snackbar">No suitable parent found from the given view. Please provide a valid view.</string>
+    <string name="ok">OK</string>
+    <string name="amount">$ %s</string>
+    <string name="warning_max_amount">you reach max value, Not able to increase more</string>
+    <string name="warning_less_amount">you reach less value, Not able to go less than one</string>
+
+    <string name="addInCart">Successfully add product in cart</string>
+    <string name="addInFav">Added product in favorite list</string>
+    <string name="removeInFav">Removed product in favorite list</string>
+    <string name="removeInCart">Successfully remove product in cart</string>
+
 </resources>

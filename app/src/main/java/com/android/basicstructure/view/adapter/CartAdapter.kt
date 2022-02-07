@@ -35,11 +35,49 @@ class CartAdapter(
     override fun onBindViewHolder(holder: CommonAdapterViewHolder, position: Int) {
         val banner = mList[position]
         holder.bindData(banner)
+
         holder.itemView.setOnClickListener {
             mItemClickListener.itemClick(position)
         }
+
         holder.binding.imgPlus.setOnClickListener {
             mItemClickListener.itemClick(position)
+            holder.binding.root.requestFocus()
+            holder.binding.edtItemQuantity.isCursorVisible = false
+            if (holder.binding.edtItemQuantity.text.toString().isNotEmpty()) {
+                var currentQuantity = holder.binding.edtItemQuantity.text.toString().toInt()
+                if (currentQuantity < 9999) {
+                    currentQuantity += 1
+                    mList[position].itemQuantity = currentQuantity
+                    mList[position].totalAmount = mList[position].itemAmount * currentQuantity
+                    holder.binding.edtItemQuantity.setText(currentQuantity.toString())
+                    mItemClickListener.itemClick(position)
+                } else {
+                    mItemClickListener.showMessage(context.resources.getString(R.string.warning_max_amount))
+                }
+            } else {
+                holder.binding.edtItemQuantity.setText("1")
+            }
+        }
+
+        holder.binding.imgMinus.setOnClickListener {
+            mItemClickListener.itemClick(position)
+            holder.binding.root.requestFocus()
+            holder.binding.edtItemQuantity.isCursorVisible = false
+            if (holder.binding.edtItemQuantity.text.toString().isNotEmpty()) {
+                var currentQuantity = holder.binding.edtItemQuantity.text.toString().toInt()
+                if (currentQuantity > 1) {
+                    currentQuantity -= 1
+                    mList[position].itemQuantity = currentQuantity
+                    mList[position].totalAmount = mList[position].itemAmount * currentQuantity
+                    holder.binding.edtItemQuantity.setText(currentQuantity.toString())
+                    mItemClickListener.itemClick(position)
+                } else {
+                    mItemClickListener.showMessage(context.resources.getString(R.string.warning_less_amount))
+                }
+            } else {
+                holder.binding.edtItemQuantity.setText("1")
+            }
         }
 
         setMargin(position, holder)
@@ -81,5 +119,6 @@ class CartAdapter(
 
     interface ItemClickListener {
         fun itemClick(position: Int)
+        fun showMessage(message: String)
     }
 }

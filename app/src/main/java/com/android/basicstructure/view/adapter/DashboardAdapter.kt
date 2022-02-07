@@ -35,6 +35,11 @@ class DashboardAdapter(
         holder.itemView.setOnClickListener {
             mItemClickListener.itemClick(position)
         }
+        holder.binding.imgAddToCart.setOnClickListener {
+            mList[position].isAddedInCart = true
+            notifyItemChanged(position, mList[position])
+            mItemClickListener.addItem(mList[position].isAddedInCart)
+        }
     }
 
     class CommonAdapterViewHolder(var binding: DashboardItemBinding) :
@@ -48,5 +53,6 @@ class DashboardAdapter(
 
     interface ItemClickListener {
         fun itemClick(position: Int)
+        fun addItem(isAdd: Boolean)
     }
 }

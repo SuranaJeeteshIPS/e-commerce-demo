@@ -5,11 +5,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.android.basicstructure.R
 import com.android.basicstructure.core.ui.BaseFragment
 import com.android.basicstructure.core.util.goBack
+import com.android.basicstructure.core.util.hideKeyboard
+import com.android.basicstructure.core.util.snackBar
 import com.android.basicstructure.databinding.FragmentCartBinding
 import com.android.basicstructure.model.response.CartData
 import com.android.basicstructure.view.adapter.CartAdapter
@@ -65,19 +68,36 @@ class CartFragment : BaseFragment() {
         mCartDataList.add(CartData())
         mCartDataList.add(CartData())
         mCartDataList.add(CartData())
-        mCartDataList.add(CartData())
         mCartAdapter?.notifyDataSetChanged()
+        getTotalValue()
     }
 
     private fun initRecyclerView() {
-        val layoutManager = LinearLayoutManager(requireContext())
-        binding.rvCart.layoutManager = layoutManager
+        binding.rvCart.layoutManager = LinearLayoutManager(requireContext())
         mCartAdapter = CartAdapter(requireContext(), mCartDataList, object : CartAdapter
         .ItemClickListener {
             override fun itemClick(position: Int) {
+                activity?.hideKeyboard()
+                getTotalValue()
+            }
 
+            override fun showMessage(message: String) {
+                binding.root.snackBar(message)
+                getTotalValue()
             }
         })
         binding.rvCart.adapter = mCartAdapter
+
+        binding.rvCart.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                super.onScrollStateChanged(recyclerView, newState)
+                activity?.hideKeyboard()
+            }
+        })
+    }
+
+    private fun getTotalValue() {
+        val total = mCartDataList.sumOf { it.getTotalAmountValue() }
+        binding.txtTotalAmount.text = resources.getString(R.string.amount, total.toString())
     }
 }

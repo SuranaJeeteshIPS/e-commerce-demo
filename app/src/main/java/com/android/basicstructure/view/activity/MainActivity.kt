@@ -3,6 +3,7 @@ package com.android.basicstructure.view.activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.android.basicstructure.R
+import com.android.basicstructure.core.ui.BaseActivity
 import com.android.basicstructure.core.util.addReplaceFragment
 import com.android.basicstructure.view.fragment.CartFragment
 import com.android.basicstructure.view.fragment.DashboardFragment
@@ -10,7 +11,7 @@ import com.android.basicstructure.view.fragment.DashboardFragment
 /**
  * Created by JeeteshSurana.
  */
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

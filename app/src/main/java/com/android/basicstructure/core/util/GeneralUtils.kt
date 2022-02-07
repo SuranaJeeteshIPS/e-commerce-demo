@@ -1,14 +1,18 @@
 package com.android.basicstructure.core.util
 
+import android.annotation.SuppressLint
 import android.app.Activity
+import android.content.Context
 import android.content.res.Resources
+import android.graphics.Color
+import android.os.Build
 import android.util.TypedValue
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.view.animation.Animation
 import android.view.animation.Transformation
 import android.view.inputmethod.InputMethodManager
 import androidx.annotation.IdRes
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
@@ -269,4 +273,130 @@ fun collapse(v: View) {
 
 fun Fragment.goBack() {
     activity?.supportFragmentManager?.popBackStack()
+}
+
+
+
+
+
+const val fullScreenFlag = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_FULLSCREEN
+const val hideNavigationFlag =
+    View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+const val hideStatusBar = View.STATUS_BAR_HIDDEN
+const val drawStatusBarFlag = WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS
+const val immersiveStickyFlag = View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+const val noLimitFlag = WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+const val keepScreenOn =
+    WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON or WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD or WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
+
+
+@RequiresApi(Build.VERSION_CODES.M)
+val lightStatusFlag = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+
+enum class Theme { FULL_SCREEN, GLOBAL }
+
+@SuppressLint("ObsoleteSdkInt")
+fun Window.setTheme(theme: Theme = Theme.GLOBAL) {
+    when (theme) {
+        Theme.GLOBAL -> {
+            val flags = hideNavigationFlag or immersiveStickyFlag or drawStatusBarFlag
+            clearFlags(fullScreenFlag)
+            addFlags(noLimitFlag)
+            when {
+                Build.VERSION.SDK_INT >= Build.VERSION_CODES.R -> {
+                    setDecorFitsSystemWindows(false)
+                    val controller = decorView.windowInsetsController
+                    if (controller != null) {
+                        controller.hide(WindowInsets.Type.navigationBars())
+                        controller.systemBarsBehavior =
+                            WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+                    }
+                    clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+                    clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION)
+                    decorView.systemUiVisibility = flags or lightStatusFlag
+                }
+                Build.VERSION.SDK_INT >= Build.VERSION_CODES.M -> {
+                    decorView.systemUiVisibility = flags or lightStatusFlag
+                }
+                Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP -> {
+                    decorView.systemUiVisibility = flags
+                }
+                else -> {
+                    decorView.systemUiVisibility = flags
+                }
+            }
+            statusBarColor = Color.TRANSPARENT
+        }
+
+        Theme.FULL_SCREEN -> {
+            val flags = noLimitFlag or hideNavigationFlag or hideStatusBar or immersiveStickyFlag
+            addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
+            when {
+                Build.VERSION.SDK_INT >= Build.VERSION_CODES.R -> {
+                    setDecorFitsSystemWindows(false)
+                    val controller = decorView.windowInsetsController
+                    if (controller != null) {
+                        if (context.isEdgeToEdgeEnabled() >= 2) {
+                            controller.show(WindowInsets.Type.navigationBars())
+                            controller.systemBarsBehavior =
+                                WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+                        } else {
+                            controller.hide(WindowInsets.Type.navigationBars() or WindowInsets.Type.navigationBars())
+                            controller.systemBarsBehavior =
+                                WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+                        }
+                    }
+                    addFlags(flags or lightStatusFlag)
+                    decorView.systemUiVisibility = flags or lightStatusFlag
+                }
+                Build.VERSION.SDK_INT >= Build.VERSION_CODES.O -> {
+                    addFlags(flags or lightStatusFlag or keepScreenOn)
+                    decorView.systemUiVisibility = flags or keepScreenOn
+                }
+                Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP -> {
+                    decorView.systemUiVisibility = flags
+                }
+                else -> {
+                    decorView.systemUiVisibility = flags
+                }
+            }
+            statusBarColor = Color.TRANSPARENT
+        }
+        else -> {
+        }
+    }
+}
+
+
+fun FragmentActivity.keepScreenOn() {
+    clearFlags()
+    window.decorView.keepScreenOn = true
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {
+        setTurnScreenOn(true)
+    }
+    window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON )
+}
+
+/**
+ * 0 : Navigation is displaying with 3 buttons
+ * 1 : Navigation is displaying with 2 button(Android P navigation mode)
+ * 2 : Full screen gesture(Gesture on android Q)
+ */
+fun Context.isEdgeToEdgeEnabled(): Int {
+    val resourceId = resources.getIdentifier("config_navBarInteractionMode", "integer", "android")
+    return if (resourceId > 0) {
+        resources.getInteger(resourceId)
+    } else 0
+}
+
+private fun FragmentActivity.clearFlags() {
+    window.decorView.keepScreenOn = false
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+        setInheritShowWhenLocked(false)
+    }
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {
+        setShowWhenLocked(false)
+        setTurnScreenOn(false)
+    }
+    window.clearFlags(WindowManager.LayoutParams.FLAG_ALLOW_LOCK_WHILE_SCREEN_ON or WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD or WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON or WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED or WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON)
 }

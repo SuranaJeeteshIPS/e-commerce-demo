@@ -15,22 +15,37 @@
         <entry key="..\:/Android Project/BasicStructure_abhin/BasicStructure/app/src/main/res/drawable/default_ripple_round.xml" value="0.201" />
         <entry key="..\:/Android Project/BasicStructure_abhin/BasicStructure/app/src/main/res/drawable/default_ripple_square.xml" value="0.201" />
         <entry key="..\:/Android Project/BasicStructure_abhin/BasicStructure/app/src/main/res/drawable/ic_add.xml" value="0.201" />
+        <entry key="..\:/Android Project/BasicStructure_abhin/BasicStructure/app/src/main/res/drawable/ic_back_button.xml" value="0.201" />
         <entry key="..\:/Android Project/BasicStructure_abhin/BasicStructure/app/src/main/res/drawable/ic_baseline_grass_24.xml" value="0.201" />
+        <entry key="..\:/Android Project/BasicStructure_abhin/BasicStructure/app/src/main/res/drawable/ic_baseline_shopping_cart_24.xml" value="0.201" />
+        <entry key="..\:/Android Project/BasicStructure_abhin/BasicStructure/app/src/main/res/drawable/ic_cart.xml" value="0.201" />
+        <entry key="..\:/Android Project/BasicStructure_abhin/BasicStructure/app/src/main/res/drawable/ic_fav.xml" value="0.201" />
+        <entry key="..\:/Android Project/BasicStructure_abhin/BasicStructure/app/src/main/res/drawable/ic_fav_filled.xml" value="0.201" />
+        <entry key="..\:/Android Project/BasicStructure_abhin/BasicStructure/app/src/main/res/drawable/ic_filled.xml" value="0.201" />
+        <entry key="..\:/Android Project/BasicStructure_abhin/BasicStructure/app/src/main/res/drawable/ic_test_cart.xml" value="0.201" />
+        <entry key="..\:/Android Project/BasicStructure_abhin/BasicStructure/app/src/main/res/drawable/icon_add_cart.xml" value="0.201" />
+        <entry key="..\:/Android Project/BasicStructure_abhin/BasicStructure/app/src/main/res/drawable/icon_fill_fav.xml" value="0.201" />
+        <entry key="..\:/Android Project/BasicStructure_abhin/BasicStructure/app/src/main/res/drawable/selector_shape_dashboard.xml" value="0.201" />
+        <entry key="..\:/Android Project/BasicStructure_abhin/BasicStructure/app/src/main/res/drawable/selector_shape_detail.xml" value="0.201" />
         <entry key="..\:/Android Project/BasicStructure_abhin/BasicStructure/app/src/main/res/drawable/shape_btn_check_out.xml" value="0.201" />
         <entry key="..\:/Android Project/BasicStructure_abhin/BasicStructure/app/src/main/res/drawable/shape_categories.xml" value="0.201" />
         <entry key="..\:/Android Project/BasicStructure_abhin/BasicStructure/app/src/main/res/drawable/shape_categories_selector.xml" value="0.201" />
         <entry key="..\:/Android Project/BasicStructure_abhin/BasicStructure/app/src/main/res/drawable/shape_categories_unselected.xml" value="0.201" />
         <entry key="..\:/Android Project/BasicStructure_abhin/BasicStructure/app/src/main/res/drawable/shape_dashboard.xml" value="0.201" />
         <entry key="..\:/Android Project/BasicStructure_abhin/BasicStructure/app/src/main/res/drawable/shape_detail_add_to-cart_background.xml" value="0.201" />
+        <entry key="..\:/Android Project/BasicStructure_abhin/BasicStructure/app/src/main/res/drawable/shape_rounded.xml" value="0.201" />
         <entry key="..\:/Android Project/BasicStructure_abhin/BasicStructure/app/src/main/res/layout-v28/item_dashboard.xml" value="0.3546875" />
         <entry key="..\:/Android Project/BasicStructure_abhin/BasicStructure/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Android Project/BasicStructure_abhin/BasicStructure/app/src/main/res/layout/custom_snack_bar.xml" value="0.3546875" />
         <entry key="..\:/Android Project/BasicStructure_abhin/BasicStructure/app/src/main/res/layout/fragment_cart.xml" value="0.3296296296296296" />
+        <entry key="..\:/Android Project/BasicStructure_abhin/BasicStructure/app/src/main/res/layout/fragment_dashboard_detail.xml" value="0.3546875" />
         <entry key="..\:/Android Project/BasicStructure_abhin/BasicStructure/app/src/main/res/layout/fragment_detail_view.xml" value="0.33" />
         <entry key="..\:/Android Project/BasicStructure_abhin/BasicStructure/app/src/main/res/layout/fragment_home.xml" value="0.33" />
         <entry key="..\:/Android Project/BasicStructure_abhin/BasicStructure/app/src/main/res/layout/item_cart.xml" value="0.33" />
         <entry key="..\:/Android Project/BasicStructure_abhin/BasicStructure/app/src/main/res/layout/item_categories.xml" value="0.3546875" />
         <entry key="..\:/Android Project/BasicStructure_abhin/BasicStructure/app/src/main/res/layout/item_dashboard.xml" value="0.25" />
         <entry key="..\:/Android Project/BasicStructure_abhin/BasicStructure/app/src/main/res/layout/layout_dashboard_profile.xml" value="0.33" />
+        <entry key="..\:/Android Project/BasicStructure_abhin/BasicStructure/app/src/main/res/layout/view_snackbar.xml" value="0.3546875" />
         <entry key="..\:/Android Project/BasicStructure_abhin/BasicStructure/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1845" />
       </map>
     </option>

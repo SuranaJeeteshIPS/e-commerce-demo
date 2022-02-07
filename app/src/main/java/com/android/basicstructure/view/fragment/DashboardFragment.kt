@@ -13,6 +13,7 @@ import com.android.basicstructure.R
 import com.android.basicstructure.core.ui.BaseFragment
 import com.android.basicstructure.core.util.GridSpacingDecoration
 import com.android.basicstructure.core.util.addReplaceFragment
+import com.android.basicstructure.core.util.snackBar
 import com.android.basicstructure.databinding.FragmentHomeBinding
 import com.android.basicstructure.model.response.DashboardCategoriesData
 import com.android.basicstructure.model.response.DashboardData
@@ -35,6 +36,8 @@ class DashboardFragment : BaseFragment() {
 
     private var mDashboardDataList = ArrayList<DashboardData>()
     private var mDashboardCategoriesDataList = ArrayList<DashboardCategoriesData>()
+
+    private var categoryOldPosition = 0
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -116,7 +119,17 @@ class DashboardFragment : BaseFragment() {
                 mDashboardCategoriesDataList,
                 object : DashboardCategoriesAdapter.ItemClickListener {
                     override fun itemClick(position: Int) {
-
+                        mDashboardCategoriesDataList[categoryOldPosition].isSelected = false
+                        mDashboardCategoriesDataList[position].isSelected = true
+                        mDashboardCategoriesAdapter?.notifyItemChanged(
+                            categoryOldPosition,
+                            mDashboardCategoriesDataList[categoryOldPosition]
+                        )
+                        mDashboardCategoriesAdapter?.notifyItemChanged(
+                            position,
+                            mDashboardCategoriesDataList[position]
+                        )
+                        categoryOldPosition = position
                     }
                 })
         binding.rvCategories.adapter = mDashboardCategoriesAdapter
@@ -133,6 +146,15 @@ class DashboardFragment : BaseFragment() {
                         addFragment = true,
                         addToBackStack = true
                     )
+                }
+
+                override fun addItem(isAdd: Boolean) {
+                    val message = if (isAdd) {
+                        resources.getString(R.string.addInCart)
+                    } else {
+                        resources.getString(R.string.removeInCart)
+                    }
+                    binding.root.snackBar(message)
                 }
             })
         binding.rvDashboard.adapter = mDashboardAdapter

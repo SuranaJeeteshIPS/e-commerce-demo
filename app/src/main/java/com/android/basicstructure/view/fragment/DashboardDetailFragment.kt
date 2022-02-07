@@ -11,6 +11,7 @@ import com.android.basicstructure.R
 import com.android.basicstructure.core.ui.BaseFragment
 import com.android.basicstructure.core.util.addReplaceFragment
 import com.android.basicstructure.core.util.goBack
+import com.android.basicstructure.core.util.snackBar
 import com.android.basicstructure.databinding.FragmentDashboardDetailBinding
 
 class DashboardDetailFragment : BaseFragment() {
@@ -44,6 +45,15 @@ class DashboardDetailFragment : BaseFragment() {
             }
             it.imgBack.setOnClickListener {
                 goBack()
+            }
+            it.imgFav.setOnClickListener { view ->
+                view.isSelected = !view.isSelected
+                val message = if (view.isSelected) {
+                    resources.getString(R.string.addInFav)
+                } else {
+                    resources.getString(R.string.removeInFav)
+                }
+                binding.root.snackBar(message)
             }
         }
     }

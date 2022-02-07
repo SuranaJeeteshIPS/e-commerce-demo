@@ -4,6 +4,7 @@ data class DashboardData(
     var id: String? = null,
     var title: String? = null,
     var rating: Float? = null,
+    var isAddedInCart: Boolean = false,
     var itemCount: Int? = null,
     var itemAmount: Int? = null,
     var url: String? = null

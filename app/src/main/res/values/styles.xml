@@ -210,4 +210,15 @@
 
     <!--[END] Description Fragment-->
 
+    <!--[START] Toast-->
+    <style name="toastMessage" parent="OpenSansExtraBold14">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/sp_14</item>
+    </style>
+
+    <style name="toastAction" parent="OpenSansExtraBold14">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/sp_14</item>
+    </style>
+    <!--[END] Toast-->
 </resources>
